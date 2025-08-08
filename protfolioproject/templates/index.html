@@ -63,6 +63,47 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         cursor: pointer;
       }
+      /* Stylish Submit Button */
+      .styled-button {
+        background-color: #0563BB;     /* Indigo blue */
+        color: #fff;
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 6px;
+        box-shadow: 0 4px 14px rgba(65, 84, 241, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .styled-button:hover {
+        background-color: #0563BB;     /* Darker shade on hover */
+        box-shadow: 0 6px 18px rgba(223, 223, 223, 0.6);
+        transform: translateY(-2px);
+      }
+
+      .info-item a {
+      color: #0d6efd;
+      text-decoration: none;
+    }
+
+    .info-item a:hover {
+      text-decoration: underline;
+    }
+
+
+    .contact-link {
+      color: black !important;
+      text-decoration: none;
+    }
+
+    .contact-link:hover {
+      color: #007BFF; /* Optional: blue on hover */
+      text-decoration: underline;
+    }
+
+
     </style>
   </head>
 
@@ -1129,57 +1170,44 @@
         </div>
         <!-- End Section Title -->
 
-        <div class="container" data-aos="fade" data-aos-delay="100">
-          <div class="row gy-4">
-            <div class="col-lg-4">
-              <div
-                class="info-item d-flex"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>Mohammadpur,Dhaka-1208-Bangladesh</p>
-                </div>
-              </div>
-              <!-- End Info Item -->
+<div class="container">
+  <div class="row">
+    <!-- Left side -->
+    <div class="col-lg-4 d-flex flex-column align-items-start">
+      <div class="info-item d-flex align-items-center mb-3">
+        <i class="bi bi-geo-alt me-3"></i>
+        <div>
+          <h3>Address</h3>
+          <p><a href="https://www.google.com/maps/place/Mohammadpur,+Dhaka/" target="_blank"class="contact-link">Mohammadpur, Dhaka-1208, Bangladesh</a></p>
+        </div>
+      </div>
 
-              <div
-                class="info-item d-flex"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call me</h3>
-                  <p>+880 17712 24762</p>
-                </div>
-              </div>
-              <!-- End Info Item -->
+      <div class="info-item d-flex align-items-center mb-3">
+        <i class="bi bi-telephone me-3"></i>
+        <div>
+          <h3>Call me</h3>
+          <p><a href="tel:+8801771224762"class="contact-link"class="contact-link">+880 17712 24762</a></p>
+        </div>
+      </div>
 
-              <div
-                class="info-item d-flex"
-                data-aos="fade-up"
-                data-aos-delay="400"
-              >
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Us</h3>
-                  <p>monjurulislamshoron2005@gmail.com</p>
-                </div>
-              </div>
-              <!-- End Info Item -->
-            </div>
+      <div class="info-item d-flex align-items-center mb-3">
+        <i class="bi bi-envelope me-3"></i>
+        <div>
+          <h3>Email</h3>
+          <p><a href="mailto:monjurulislamshoron2005@gmail.com "class="contact-link">monjurulislamshoron2005@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
 
+<!-- contact information -->
             <div class="col-lg-8">
               <form
-                action="forms/contact.php"
-                method="post"
-                class="php-email-form"
+                action="{%url 'contact'%}"
+                method="POST"
+                class="styled-submit"
                 data-aos="fade-up"
                 data-aos-delay="200"
-              >
+              >{% csrf_token %}
                 <div class="row gy-4">
                   <div class="col-md-6">
                     <input
@@ -1222,13 +1250,7 @@
                   </div>
 
                   <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">
-                      Your message has been sent. Thank you!
-                    </div>
-
-                    <button type="submit">Send Message</button>
+                    <button type="submit" class="styled-button">Send Message</button>
                   </div>
                 </div>
               </form>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from database.models import Testimonial,About, Aboutextra,Hero,HeroCV
+from database.models import Testimonial,About, Aboutextra,Hero,HeroCV,Contact_information
 
 
 
@@ -25,7 +25,12 @@ class HeroCVAdmin(admin.ModelAdmin):
     list_display = ('file',)
     search_fields = ('file',)
     
+class Contact_informationAdmin(admin.ModelAdmin):
+    list_display=('name','email','subject','message',)
+    search_fields = ('name','email','subject','message',)
     
+    
+admin.site.register(Contact_information,Contact_informationAdmin) 
 admin.site.register(HeroCV, HeroCVAdmin)
 admin.site.register(Hero, HeroAdmin)
 admin.site.register(About, AboutAdmin)

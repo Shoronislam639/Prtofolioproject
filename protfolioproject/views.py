@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from database.models import Testimonial, About, Aboutextra, Hero,HeroCV
+from database.models import Testimonial, About, Aboutextra, Hero,HeroCV,Contact_information
 from django.contrib.auth.models import auth
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
@@ -84,3 +84,25 @@ def Dashboard (request):
     if request.user.is_authenticated:
         return render (request,'dashboard.html')
     return render ( request,'login.html')
+
+
+
+def Contact(request):
+  
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        en = Contact_information(name=name, email=email, subject=subject, message=message)
+        en.save()
+
+        
+    return redirect('home')
+
+        
+        
+        
+        
+        

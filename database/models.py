@@ -31,7 +31,12 @@ class Hero(models.Model):
 class HeroCV(models.Model): 
     file = models.FileField(upload_to='Picture',null=True, blank=True)
     
-    
+ 
+class Contact_information(models.Model):
+    name=models.CharField(max_length=250)
+    email=models.EmailField(max_length=254,unique=False)    
+    subject=models.CharField(max_length=250)
+    message=models.TextField()
     
     
       # #about area
